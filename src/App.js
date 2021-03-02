@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Login from './pages/Login/index'
+import './global.css'
+import ButtonAppBar from './components/Navbar'
+import Home from './pages/Home/Home'
+import Cardapio from './pages/Cardapio/Cardapio'
+import Comidas from './pages/Cardapio/Comidas'
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Detalhe from './pages/Cardapio/Detalhe'
+import Comanda from './pages/Comanda/Comanda'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <ButtonAppBar />
+    <Comanda />
     </div>
   );
 }
