@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,9 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar className={classes.Toolbar}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+          { window.location.pathname !== '/home' ? 
+            <ChevronLeft  />
+          : <MenuIcon />}
           </IconButton>
           <Button className={classes.AddIcon}>
             <AddIcon />

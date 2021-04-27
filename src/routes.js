@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Cardapio from './pages/Cardapio/Cardapio'
 import Comidas from './pages/Cardapio/Comidas'
 import Detalhe from './pages/Cardapio/Detalhe'

@@ -6,6 +6,8 @@ import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import MenuBookRoundedIcon from '@material-ui/icons/MenuBookRounded';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
+import { useHistory } from "react-router-dom";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,10 +41,10 @@ export default function Home() {
     <div className={classes.root}>
       <div className={classes.container}>
       <Grid item xs={12}>
-          <Button className={classes.botoes} startIcon={<HomeRoundedIcon />} variant="contained">Home</Button>
-          <Button className={classes.botoes} startIcon={<AssignmentIcon />} variant="contained">Comanda</Button>
-          <Button className={classes.botoes} startIcon={<MenuBookRoundedIcon />} variant="contained">Cardápio</Button>
-          <Button className={classes.botoes} startIcon={<ShoppingCartRoundedIcon />} variant="contained">Pedidos</Button>
+          <Button className={classes.botoes} href={'/home'} startIcon={<HomeRoundedIcon />} variant="contained">Home</Button>
+          <Button className={classes.botoes} href={'/comanda'} startIcon={<AssignmentIcon />} variant="contained">Comanda</Button>
+          <Button className={classes.botoes} href={'/cardapio'} startIcon={<MenuBookRoundedIcon />} variant="contained">Cardápio</Button>
+          <Button className={classes.botoes} href={'/pedidos'} startIcon={<ShoppingCartRoundedIcon />} variant="contained">Pedidos</Button>
         </Grid>
       </div>
     </div>

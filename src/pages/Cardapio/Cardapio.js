@@ -9,7 +9,7 @@ import LocalDiningIcon from '@material-ui/icons/LocalDining';
 
 
 const useStyles = makeStyles((theme) => ({
-  rootRaiz: {
+  root: {
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '100%',
@@ -21,6 +21,14 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '5%',
       placeItems: 'center',
       
+  },
+  botoes: {
+    margin: '1% 2% 1% 2%',
+    width: '97%',
+    justifyContent: 'start',
+    backgroundColor: '#F7F9F9',
+    color: '#5F0F40',
+    padding: '10px'
   }
 }));
 
@@ -28,12 +36,12 @@ export default function Cardapio() {
   const classes = useStyles();
 
   return (
-    <div className={classes.rootRaiz}>
+    <div className={classes.root}>
       <div className={classes.container}>
-      <Grid item xs={6}>
-      <Cartao name="Comida" icon={<FastfoodIcon></FastfoodIcon>}></Cartao>
-      <Cartao name="Bebidas" icon={<LocalBarIcon></LocalBarIcon>}></Cartao>
-      <Cartao name="Sobremesas" icon={<LocalDiningIcon></LocalDiningIcon>}></Cartao>
+      <Grid item xs={12}>
+      <Button className={classes.botoes} href={'/comidas'} name="Comida" startIcon={<FastfoodIcon />} variant="contained">Comidas</Button>
+      <Button className={classes.botoes} name="Bebidas" startIcon={<LocalBarIcon />} variant="contained">Bebidas</Button>
+      <Button className={classes.botoes} name="Sobremesas" startIcon={<LocalDiningIcon />} variant="contained">Sobremesas</Button>
       </Grid>
       </div>
     </div>
