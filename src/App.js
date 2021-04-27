@@ -9,13 +9,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Detalhe from './pages/Cardapio/Detalhe'
 import Comanda from './pages/Comanda/Comanda'
-
+import Routes from './routes'
 
 function App() {
   return (
+    
     <div>
     <ButtonAppBar />
-    <Comanda />
+    <Routes />
     </div>
   );
 }

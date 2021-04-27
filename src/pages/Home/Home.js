@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   botoes: {
     margin: '1% 2% 1% 2%',
-    width: '100%',
+    width: '97%',
     justifyContent: 'start',
     backgroundColor: '#F7F9F9',
     color: '#5F0F40',
