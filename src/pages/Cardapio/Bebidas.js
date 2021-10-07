@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -7,11 +7,12 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import ListItemText from '@material-ui/core/ListItemText'
-import FolderIcon from '@material-ui/icons/Folder';
 import Avatar from '@material-ui/core/Avatar';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import LocalBarIcon from '@material-ui/icons/LocalBar';
 import http from 'axios';
 import ButtonAppBar from '../../components/Navbar';
+
 
 const useStyles = makeStyles((theme) => ({
   rootRaiz: {
@@ -41,19 +42,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Comidas() {
+export default function Bebidas() {
   const classes = useStyles();
   const history = useHistory();
-  const [dense, setDense] = useState(false);
-  const [secondary, setSecondary] = useState(false);
+  const [dense] = React.useState(false);
   const [produto, setProduto] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     setLoading(true)
     http.get("http://localhost:3333/produtos/")
       .then(response => {
+        console.log('lala', response.data);
         setProduto(response.data)
       })
       .catch(function(error) {
@@ -65,16 +65,8 @@ export default function Comidas() {
 
   }, []);
 
-
   const test = () => {
-    produto.map((prod) => {
-      return console.log(prod);
-    })
-
-  }
-
-  if (loading) {
-    return <span>{loading}</span>;
+    console.log(produto.produto)
   }
 
   return (
@@ -84,17 +76,17 @@ export default function Comidas() {
       <Grid item xs={6}>
       <div className={classes.demo}>
             <List dense={dense}>
-              {  produto ? produto.map((prod) => {
-                if(prod.categoria === 'CM'){
+              { produto ? produto.map((prod) => {
+                console.log(prod)
+                if(prod.categoria === 'BA'){
                 return (
-                  <ListItem button="true" onClick={() => history.push(`/produto/detalhe/${prod.idprodutos}`)}  className={classes.item} style={{borderRadius: '5px'}}>
+                  <ListItem button="true" onClick={() => history.push(`/produto/detalhe/${prod.idprodutos}`)} key={produto.idprodutos} className={classes.item} style={{borderRadius: '5px'}}>
                     <ListItemAvatar>
                       <Avatar>
-                        <FolderIcon />
+                        <LocalBarIcon />
                       </Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                      key={prod.idprodutos}
                       primary={prod.nome}
                       secondary={prod.descricao}
                     />
@@ -104,12 +96,12 @@ export default function Comidas() {
                       </Avatar>
                   </Button>
                   </ListItem>
-                  )} else {
-                    return(null);
-                  }
-
-                }) : null
-              }
+                  )
+                } else {
+                  return (null);
+                }
+                })
+              : null}
             </List>
           </div>
       </Grid>

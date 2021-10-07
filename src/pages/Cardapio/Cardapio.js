@@ -2,10 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Cartao from '../../components/Cartao'
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
 import LocalDiningIcon from '@material-ui/icons/LocalDining';
+import ButtonAppBar from '../../components/Navbar';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       marginTop: '5%',
       placeItems: 'center',
-      
+
   },
   botoes: {
     margin: '1% 2% 1% 2%',
@@ -37,11 +37,12 @@ export default function Cardapio() {
 
   return (
     <div className={classes.root}>
+      <ButtonAppBar url={'/home'} />
       <div className={classes.container}>
       <Grid item xs={12}>
-      <Button className={classes.botoes} href={'/comidas'} name="Comida" startIcon={<FastfoodIcon />} variant="contained">Comidas</Button>
-      <Button className={classes.botoes} name="Bebidas" startIcon={<LocalBarIcon />} variant="contained">Bebidas</Button>
-      <Button className={classes.botoes} name="Sobremesas" startIcon={<LocalDiningIcon />} variant="contained">Sobremesas</Button>
+        <Button className={classes.botoes} href={'/cardapio/comidas'} name="Comida" startIcon={<FastfoodIcon />} variant="contained">Comidas</Button>
+        <Button className={classes.botoes} href={'/cardapio/bebidas-alcoolicas'} name="Bebidas" startIcon={<LocalBarIcon />} variant="contained">Bebidas</Button>
+        <Button className={classes.botoes} name="Sobremesas" startIcon={<LocalDiningIcon />} variant="contained">Sobremesas</Button>
       </Grid>
       </div>
     </div>

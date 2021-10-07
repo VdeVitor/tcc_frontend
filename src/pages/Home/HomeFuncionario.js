@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Home() {
+export default function HomeFuncionario() {
   const classes = useStyles();
   const [invisible, setInvisible] = React.useState(true);
   const usuNome = localStorage.getItem('usuario');
@@ -75,10 +75,9 @@ export default function Home() {
         <Chip className={classes.texto} label={usuNome} icon={<FaceIcon />} />
       </Badge>
       <Grid item xs={12}>
-          <Button className={classes.botoes} href={'/home'} startIcon={<HomeRoundedIcon />} variant="contained">Home</Button>
-          <Button className={classes.botoes} href={'/comanda'} startIcon={<AssignmentIcon />} variant="contained">Comanda</Button>
+          <Button className={classes.botoes} href={'/listacomandas'} startIcon={<AssignmentIcon />} variant="contained">Comandas</Button>
           <Button className={classes.botoes} href={'/cardapio'} startIcon={<MenuBookRoundedIcon />} variant="contained">Cardápio</Button>
-          <Button className={classes.botoes} href={'/pedidos'} startIcon={<ShoppingCartRoundedIcon />} variant="contained">Pedidos</Button>
+          <Button className={classes.botoes} href={'/listapedidos'} startIcon={<ShoppingCartRoundedIcon />} variant="contained">Pedidos</Button>
         </Grid>
         <img className={classes.footer} src={artHome} alt="arthome" />
       </div>

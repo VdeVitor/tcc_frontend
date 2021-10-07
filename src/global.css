@@ -22,3 +22,7 @@ input, button, textarea {
 button {
     cursor: pointer;
 }
+
+colorError {
+    color: "70e000";
+}

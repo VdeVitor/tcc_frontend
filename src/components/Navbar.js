@@ -2,12 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,20 +33,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.Toolbar}>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          { window.location.pathname !== '/home' ? 
-            <ChevronLeft  />
-          : <MenuIcon />}
+          <IconButton href={props.url} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          { window.location.pathname !== '/home'  ?
+            <ChevronLeft style={{color: '5f0f40'}} />
+          : null}
           </IconButton>
-          <Button className={classes.AddIcon}>
-            <AddIcon />
+          <Button className={classes.AddIcon} href={props.segundaUrl}>
+          { window.location.pathname === '/login' ?
+            <PersonAddIcon style={{color: '5f0f40'}} />
+          : window.location.pathname === '/cadastro' ?
+          null : <AddIcon style={{color: '5f0f40'}} />}
           </Button>
         </Toolbar>
       </AppBar>

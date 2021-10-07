@@ -114,7 +114,7 @@ function generate(element) {
 }
 
 
-export default function Comanda() {
+export default function ComandaFuncionario() {
   const classes = useStyles();
   const [dense, setDense] = useState(false);
   const [secondary, setSecondary] = useState(false);
